@@ -124,6 +124,34 @@ target_link_libraries(probe_random
   ${ament_LIBRARIES}
 )
 
+add_executable(Piezo_test test/Piezo_test.cpp)
+ament_target_dependencies(Piezo_test
+  ${dependencies}
+  phidgets_msgs
+)
+target_link_libraries(Piezo_test
+  xarm_planner
+  ${ament_LIBRARIES}
+)
+
+add_executable(Piezo_arm_test test/Piezo_arm_test.cpp)
+ament_target_dependencies(Piezo_arm_test
+  ${dependencies}
+)
+target_link_libraries(Piezo_arm_test
+  xarm_planner
+  ${ament_LIBRARIES}
+)
+
+add_executable(Piezo_stepper test/Piezo_stepper.cpp)
+ament_target_dependencies(Piezo_stepper
+  ${dependencies}
+)
+target_link_libraries(Piezo_stepper
+  xarm_planner
+  ${ament_LIBRARIES}
+)
+
 add_executable(test_custom test/test_custom.cpp)
 ament_target_dependencies(test_custom
   ${dependencies}
@@ -185,6 +213,9 @@ install(
   add_scene
   test_custom
   probe_random
+  Piezo_test
+  Piezo_arm_test
+  Piezo_stepper
   LIBRARY DESTINATION lib
   ARCHIVE DESTINATION lib
   RUNTIME DESTINATION lib/${PROJECT_NAME}

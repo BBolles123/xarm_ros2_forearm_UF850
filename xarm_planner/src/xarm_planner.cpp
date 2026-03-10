@@ -11,8 +11,8 @@ namespace xarm_planner
 {
 const double jump_threshold = 0.0;
 const double eef_step = 0.005;
-const double max_velocity_scaling_factor = 0.1;  // [move_group_interface] default is 0.1
-const double max_acceleration_scaling_factor = 0.1;  // [move_group_interface] default is 0.1
+const double max_velocity_scaling_factor = 0.01;  // [move_group_interface] default is 0.1
+const double max_acceleration_scaling_factor = 0.01;  // [move_group_interface] default is 0.1
 
 XArmPlanner::XArmPlanner(const rclcpp::Node::SharedPtr& node, const std::string& group_name)
     : node_(node)

@@ -152,6 +152,16 @@ target_link_libraries(Piezo_stepper
   ${ament_LIBRARIES}
 )
 
+add_executable(Piezo_arm_stepper_hit_test test/Piezo_arm_stepper_hit_test.cpp)
+ament_target_dependencies(Piezo_arm_stepper_hit_test
+  ${dependencies}
+  phidgets_msgs
+)
+target_link_libraries(Piezo_arm_stepper_hit_test
+  xarm_planner
+  ${ament_LIBRARIES}
+)
+
 add_executable(test_custom test/test_custom.cpp)
 ament_target_dependencies(test_custom
   ${dependencies}
@@ -216,6 +226,7 @@ install(
   Piezo_test
   Piezo_arm_test
   Piezo_stepper
+  Piezo_arm_stepper_hit_test
   LIBRARY DESTINATION lib
   ARCHIVE DESTINATION lib
   RUNTIME DESTINATION lib/${PROJECT_NAME}
